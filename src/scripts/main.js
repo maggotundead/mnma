@@ -45,3 +45,11 @@ deleteFileBtns.forEach( btn => btn.addEventListener('click', () => deleteFileMod
 document.querySelectorAll('[data-modal-action="close"]').forEach( btn => {
     btn.addEventListener('click', () => btn.closest('.modal').classList.remove('active'));
 });
+
+//temp
+setTimeout(() => {
+    document.querySelector('.error-notification').classList.add('is-shown');
+}, 2000);
+setTimeout(() => {
+    document.querySelector('.error-notification').classList.remove('is-shown');
+}, 4000);
