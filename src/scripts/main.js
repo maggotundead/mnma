@@ -16,6 +16,16 @@ const mobileCheck = () => {
 // console.log(mobileCheck());
 
 const fileItemsEditBtns = document.querySelectorAll('.file-item-edit');
+const chatItemsEditBtns = document.querySelectorAll('.chat-item-edit');
+
+const renameElemModal = document.querySelector('#rename-elem-modal');
+const deleteElemModal = document.querySelector('#delete-elem-modal');
+
+const renameFileBtns = document.querySelectorAll('.file-item-rename');
+const deleteFileBtns = document.querySelectorAll('.file-item-delete');
+
+const renameChatBtns = document.querySelectorAll('.chat-item-rename');
+const deleteChatBtns = document.querySelectorAll('.chat-item-delete');
 
 fileItemsEditBtns.forEach((btn, index) => {
     btn.addEventListener('click', () => {
@@ -25,22 +35,37 @@ fileItemsEditBtns.forEach((btn, index) => {
         btn.closest('.file-item').classList.toggle('controls-active');
     });
 });
-
+chatItemsEditBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        chatItemsEditBtns.forEach((otherBtn, otherIndex) => {
+            otherIndex !== index && otherBtn.closest('.chat-item').classList.remove('controls-active');
+        });
+        btn.closest('.chat-item').classList.toggle('controls-active');
+    });
+});
 document.addEventListener('click', event => {
     if (document.querySelector('.file-item.controls-active') && !event.target.closest('.file-item')) {
         document.querySelector('.file-item.controls-active').classList.remove('controls-active');
     }
+    else if (document.querySelector('.chat-item.controls-active') && !event.target.closest('.chat-item')) {
+        document.querySelector('.chat-item.controls-active').classList.remove('controls-active');
+    }
+    else if (event.target.classList.contains('file-item-rename') || event.target.classList.contains('chat-item-rename')) {
+        renameElemModal.classList.add('active');
+    }
+    else if (event.target.classList.contains('file-item-delete') || event.target.classList.contains('chat-item-delete')) {
+        deleteElemModal.classList.add('active');
+    }
 });
 
-const renameFileModal = document.querySelector('#rename-file-modal');
-const deleteFileModal = document.querySelector('#delete-file-modal');
 
-const renameFileBtns = document.querySelectorAll('.file-item-rename');
-const deleteFileBtns = document.querySelectorAll('.file-item-delete');
 
-renameFileBtns.forEach( btn => btn.addEventListener('click', () => renameFileModal.classList.add('active')));
 
-deleteFileBtns.forEach( btn => btn.addEventListener('click', () => deleteFileModal.classList.add('active')));
+// renameFileBtns.forEach( btn => btn.addEventListener('click', () => renameElemModal.classList.add('active')));
+// deleteFileBtns.forEach( btn => btn.addEventListener('click', () => deleteElemModal.classList.add('active')));
+
+// renameChatBtns.forEach( btn => btn.addEventListener('click', () => renameElemModal.classList.add('active')));
+// deleteChatBtns.forEach( btn => btn.addEventListener('click', () => deleteElemModal.classList.add('active')));
 
 document.querySelectorAll('[data-modal-action="close"]').forEach( btn => {
     btn.addEventListener('click', () => btn.closest('.modal').classList.remove('active'));
@@ -52,4 +77,4 @@ setTimeout(() => {
 }, 2000);
 setTimeout(() => {
     document.querySelector('.error-notification').classList.remove('is-shown');
-}, 4000);
+}, 6000);

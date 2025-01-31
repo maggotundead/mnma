@@ -12,6 +12,8 @@
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+
+
     </head>
     <body>
         <div class="site-wrapper">
@@ -26,6 +28,10 @@
             <main class="main">
                 <section class="block-chat">
                     <div class="container">
+                        <div class="bg">
+                            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
+                            <spline-viewer url="https://prod.spline.design/G6OVVDPIqxxC4x-r/scene.splinecode"></spline-viewer>
+                        </div>
                         <div class="history-col">
                             <div class="col-head">
                                 <button class="circle-btn white-hover">
@@ -41,13 +47,33 @@
                                         <span>
                                             Competitor Analysis
                                         </span>
-                                        <button></button>
+                                        <button class="chat-item-edit"></button>
+                                        <div class="chat-item-controls">
+                                            <button class="chat-item-rename">
+                                                <svg><use xlink:href="#icon-pencil-simple"></use></svg>
+                                                <span>Rename</span>
+                                            </button>
+                                            <button class="chat-item-delete">
+                                                <svg><use xlink:href="#icon-trash"></use></svg>
+                                                <span>Delete</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="chat-item">
                                         <span>
                                             Meeting Notes 28.01
                                         </span>
-                                        <button></button>
+                                        <button class="chat-item-edit"></button>
+                                        <div class="chat-item-controls">
+                                            <button class="chat-item-rename">
+                                                <svg><use xlink:href="#icon-pencil-simple"></use></svg>
+                                                <span>Rename</span>
+                                            </button>
+                                            <button class="chat-item-delete">
+                                                <svg><use xlink:href="#icon-trash"></use></svg>
+                                                <span>Delete</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="chat-history-time-label">
                                         Yesterday
@@ -56,31 +82,81 @@
                                         <span>
                                             Contract Review
                                         </span>
-                                        <button></button>
+                                        <button class="chat-item-edit"></button>
+                                        <div class="chat-item-controls">
+                                            <button class="chat-item-rename">
+                                                <svg><use xlink:href="#icon-pencil-simple"></use></svg>
+                                                <span>Rename</span>
+                                            </button>
+                                            <button class="chat-item-delete">
+                                                <svg><use xlink:href="#icon-trash"></use></svg>
+                                                <span>Delete</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="chat-item">
                                         <span>
                                             US Market Research
                                         </span>
-                                        <button></button>
+                                        <button class="chat-item-edit"></button>
+                                        <div class="chat-item-controls">
+                                            <button class="chat-item-rename">
+                                                <svg><use xlink:href="#icon-pencil-simple"></use></svg>
+                                                <span>Rename</span>
+                                            </button>
+                                            <button class="chat-item-delete">
+                                                <svg><use xlink:href="#icon-trash"></use></svg>
+                                                <span>Delete</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="chat-item">
                                         <span>
                                             Neural Networks Summary
                                         </span>
-                                        <button></button>
+                                        <button class="chat-item-edit"></button>
+                                        <div class="chat-item-controls">
+                                            <button class="chat-item-rename">
+                                                <svg><use xlink:href="#icon-pencil-simple"></use></svg>
+                                                <span>Rename</span>
+                                            </button>
+                                            <button class="chat-item-delete">
+                                                <svg><use xlink:href="#icon-trash"></use></svg>
+                                                <span>Delete</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="chat-item">
                                         <span>
                                             Financial Report Review
                                         </span>
-                                        <button></button>
+                                        <button class="chat-item-edit"></button>
+                                        <div class="chat-item-controls">
+                                            <button class="chat-item-rename">
+                                                <svg><use xlink:href="#icon-pencil-simple"></use></svg>
+                                                <span>Rename</span>
+                                            </button>
+                                            <button class="chat-item-delete">
+                                                <svg><use xlink:href="#icon-trash"></use></svg>
+                                                <span>Delete</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="chat-item">
                                         <span>
                                             Financial Report Review Financial Report Review Financial Report Review
                                         </span>
-                                        <button></button>
+                                        <button class="chat-item-edit"></button>
+                                        <div class="chat-item-controls">
+                                            <button class="chat-item-rename">
+                                                <svg><use xlink:href="#icon-pencil-simple"></use></svg>
+                                                <span>Rename</span>
+                                            </button>
+                                            <button class="chat-item-delete">
+                                                <svg><use xlink:href="#icon-trash"></use></svg>
+                                                <span>Delete</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +330,7 @@
                 <span>Something went wrong</span>
             </div>
 
-            <div id="rename-file-modal" class="modal">
+            <div id="rename-elem-modal" class="modal">
 				<div class="modal-overlay" data-modal-action="close"></div>
 				<div class="modal-body">
 					<div class="modal-content">
@@ -275,7 +351,7 @@
 					</div>
 				</div>
 			</div>
-            <div id="delete-file-modal" class="modal">
+            <div id="delete-elem-modal" class="modal">
 				<div class="modal-overlay" data-modal-action="close"></div>
 				<div class="modal-body">
 					<div class="modal-content">

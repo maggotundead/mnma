@@ -189,3 +189,12 @@
         margin-right: 8px;
     }
 }
+
+.bg {
+    position: absolute;
+    top: calc(24px + 48px + 24px);
+    left: calc(380px + 24px + 24px);
+    right: calc(380px + 24px + 24px);
+    bottom: calc(24px + 64px + 24px);
+    pointer-events: none;
+}
