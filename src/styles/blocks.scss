@@ -116,6 +116,81 @@
     }
 }
 
+.chat-body {
+    // padding-top: calc(72px + #{2 * $container-padding-x});
+    // margin-top: calc(-72px - #{2 * $container-padding-x});
+    padding-bottom: calc(64px + #{2 * $container-padding-x});
+    margin-bottom: calc(-64px - #{2 * $container-padding-x});
+    overflow-y: auto;
+    max-height: calc(100vh - 72px - #{$container-padding-x});
+
+    h3 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.4;
+        &:not(:first-child) {
+            margin-top: 24px;
+        }
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    h4 {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.55;
+    }
+
+    *:is(p, ul, ol) {
+        line-height: 1.75;
+    }
+
+    p {
+        line-height: 1.75;
+    }
+
+    hr {
+        margin: 24px 0;
+        color: $grey-2;
+    }
+
+    ul {
+        li {
+            &::before {
+                content: '';
+                width: 3px;
+                height: 3px;
+                background-color: currentColor;
+                border-radius: 50%;
+                left: 12px;
+                top: 14px;
+            }
+        }
+
+    }
+
+    ol {
+        counter-reset: step-counter;
+        li {
+            &::before {
+                content: counter(step-counter)'. ';
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+
+    li {
+        position: relative;
+        padding-left: 28px;
+        counter-increment: step-counter;
+        &::before {
+            position: absolute;
+        }
+    }
+}
+
 .chat-form {
     margin-top: auto;
     display: block;
@@ -133,6 +208,10 @@
         font-size: 16px;
         line-height: 22px;
         color: #fff;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         &::placeholder {
             line-height: 1.25;
             color: $grey-3;
@@ -156,6 +235,9 @@
             width: 22px;
             height: 26px;
             transition: $duration;
+        }
+        &:hover {
+            transform: rotate(-45deg);
         }
     }
 }
@@ -190,11 +272,28 @@
     }
 }
 
-.bg {
-    position: absolute;
-    top: calc(24px + 48px + 24px);
-    left: calc(380px + 24px + 24px);
-    right: calc(380px + 24px + 24px);
-    bottom: calc(24px + 64px + 24px);
-    pointer-events: none;
+.upload-list {
+    margin-top: auto;
+    &-annotation {
+        font-style: 14px;
+        line-height: 16px;
+        color: $grey-4;
+        text-align: center;
+    }
+    &-elems {
+        &:not(:first-child) {
+            margin-top: 16px;
+        }
+    }
 }
+
+
+
+// .bg {
+//     position: absolute;
+//     top: calc(24px + 48px + 24px);
+//     left: calc(380px + 24px + 24px);
+//     right: calc(380px + 24px + 24px);
+//     bottom: calc(24px + 64px + 24px);
+//     pointer-events: none;
+// }
