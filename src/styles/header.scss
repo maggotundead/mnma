@@ -9,6 +9,9 @@
     // align-items: center;
     .container {
         width: initial;
+        @include mobile {
+            padding: 32px $container-padding-x-mobile;
+        }
     }
     svg {
         width: 48px;

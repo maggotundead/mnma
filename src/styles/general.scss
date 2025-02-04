@@ -145,7 +145,7 @@ main {
     }
     @include mobile {
         // padding: 0 $container-padding-x-mobile;
-        padding: $container-padding-x-mobile;
+        padding: $container-padding-x-tablet $container-padding-x-mobile;
     }
 }
 

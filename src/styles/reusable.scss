@@ -12,6 +12,7 @@
         width: 20px;
         height: 20px;
         transition: $duration;
+        pointer-events: none;
     }
 
     &:is(button.white-hover) {
@@ -27,6 +28,61 @@
             border-color: $theme-color;
             color: $black;
         }
+    }
+    &.sidebar-toggler-mobile {
+        @include tablet {
+            background-color: #fff;
+            border-color: #fff;
+            color: $black;
+            position: fixed;
+            top: 36px;
+        }
+    }
+    &.history-col-toggler-mobile {
+        @include tablet {
+            left: 36px;
+        }
+        @include mobile {
+            left: 16px;
+        }
+    }
+    &.files-col-toggler-mobile {
+        @include tablet {
+            right: 36px;
+        }
+        @include mobile {
+            right: 16px;
+        }
+    }
+    &.new-chat-btn {
+        @include tablet {
+            // position: fixed;
+            position: absolute;
+            // top: 36px;
+            // left: 88px;
+            // right: 0;
+            right: calc(-44px - 12px - #{$container-padding-x-tablet} - 88px); //width + padding + offset + btn initial pos
+            // transition-delay: calc(88/348 * #{$duration});
+            // transition-duration: calc(((348 + 24 + 24) - 88) / (348 + 24 + 24) * 1.5 * #{$duration});
+            // transition-duration: calc((348 - 88) / 348 * 1.5 * #{$duration});
+            // transition: .2s;
+            // transition-delay: .15s;
+            // transition: calc((380 - 44 - 12 - #{$container-padding-x-tablet} - 88) / 380 * 1.5 * #{$duration});
+            transition: calc(260 / (380 + 24 + 24) * 1.5 * #{$duration}); // пальцем в небо
+        }
+        @include mobile {
+            // left: 68px;
+            right: calc(-44px - 12px - 8px - 68px);
+        }
+
+        // .history-col.active & {
+        //     @include tablet {
+        //         left: 348px;
+        //     }
+        //     @include mobile {
+        //         left: 235px;
+        //     }
+        // }
     }
 }
 
@@ -247,6 +303,8 @@
         color: $grey-3;
         margin-right: auto;
         transition: $duration;
+        flex-shrink: 1;
+        max-width: calc(100% - 24px - 8px - 16px - 40px);
     }
     &-title {
         width: 100%;
